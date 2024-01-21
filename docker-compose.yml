@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  react:
+    build: ./vite-docker
+    ports:
+     - 3003:5173
+    networks:
+     - mynet
+  dotnetbackend:
+    build: ./dotnet-docker
+    ports:
+      - 3006:80
+    expose:
+      - "80"
+    networks:
+      - mynet
+    environment:
+      jwt_key: ${token_key}
+      cipher_key: ${encryption_key}
+  nginx:
+    image: nginx:latest
+    ports:
+      - 3080:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
