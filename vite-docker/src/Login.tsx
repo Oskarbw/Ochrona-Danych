@@ -51,7 +51,7 @@ function Login() {
           navigate("/home");
         }, error => {
            setIsLoading(false)
-           setPasswordError(`Error: ${error}`)
+           setPasswordError(`Error occured`)
         });
     }
 
@@ -72,7 +72,7 @@ function Login() {
         }, error => {
            setIsLoading(false)
            setShowPasswordSection(false)
-           setUsernameError("Username doesn't exist")
+           setUsernameError("Error occured")
         });
     }
 

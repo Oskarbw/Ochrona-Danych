@@ -9,6 +9,9 @@ services:
       - "80"
     networks:
       - mynet
+    environment:
+      jwt_key: ${token_key}
+      cipher_key: ${encryption_key}
   nginx:
     build: ./vite-docker
     ports:

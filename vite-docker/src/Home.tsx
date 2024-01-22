@@ -86,11 +86,11 @@ function Home() {
 
         axios.post(`${API_BASE_URL}/transfer`, payload, { headers })
             .then(response => {
-                console.log("UDALO SIE")
+                
                 triggerFetch()
             }, error => {
                 
-                setWarning(`Error occured ${error}`)
+                setWarning(`Error occured`)
             });
     }
 
@@ -98,7 +98,7 @@ function Home() {
         <>
             <NavigationBar />
             <h1>Balance: {balance} </h1>
-
+            <h3> Account number: {Context.getUser()?.accountNumber}</h3>
             <Container style={{ height: '89.1vh' }}>
 
                 <Col md={{ span: 8, offset: 2 }}>

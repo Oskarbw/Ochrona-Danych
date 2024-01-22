@@ -151,3 +151,4 @@ C:\Users\oskar\Documents\__Repo-MWO-PAMW\compose-front-back\dotnet-docker\obj\De
 C:\Users\oskar\Documents\__Repo-MWO-PAMW\compose-front-back\dotnet-docker\obj\Debug\net6.0\dotnet-docker.genruntimeconfig.cache
 C:\Users\oskar\Documents\__Repo-MWO-PAMW\compose-front-back\dotnet-docker\obj\Debug\net6.0\ref\dotnet-docker.dll
 C:\Users\oskar\Documents\__Repo-MWO-PAMW\compose-front-back\dotnet-docker\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\oskar\Documents\__Repo-MWO-PAMW\compose-front-back\dotnet-docker\obj\Debug\net6.0\dotnet-docker.sourcelink.json

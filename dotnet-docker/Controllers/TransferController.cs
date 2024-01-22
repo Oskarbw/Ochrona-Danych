@@ -101,6 +101,8 @@ namespace dotnet_docker.Controllers
             var user = _db.Users.FirstOrDefault(x => x.Username == usernameFromToken);
             if (user == null) { return BadRequest(); }
 
+            if (transferDto.Amount > 1000000m || transferDto.Amount < 0m ) { return BadRequest(); }
+
             var floorAmount = FloorTo2DecimalPlaces(transferDto.Amount);
 
             if (floorAmount <= 0) { return BadRequest(); }

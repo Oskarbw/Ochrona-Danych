@@ -11,7 +11,6 @@ namespace api.Model
 {
     public class BankContext : DbContext
     {
-        public DbSet<Puma> Pumas { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Password> Passwords { get; set; }
         public DbSet<Transfer> Transfers { get; set; }
@@ -21,17 +20,6 @@ namespace api.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            var userGuid = Guid.NewGuid();
-
-            modelBuilder.Entity<Puma>().HasData(
-            new Puma()
-            {
-                Id = userGuid,
-                Name = "pumik",
-                Velocity = 123.321
-            });
-
 
             modelBuilder.Entity<User>().HasData(
                 new User

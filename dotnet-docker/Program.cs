@@ -44,10 +44,12 @@ namespace dotnet_docker
 
             builder.Services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
+
+                options.AddPolicy("Polityka",
                 policy =>
                 {
-                    policy.AllowAnyOrigin()
+                    policy.WithOrigins("http://nginx")
+                    .AllowCredentials()
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
@@ -71,7 +73,7 @@ namespace dotnet_docker
             app.UseAuthorization();
             
 
-            app.UseCors();
+            app.UseCors("Polityka");
 
             app.MapControllers();
 

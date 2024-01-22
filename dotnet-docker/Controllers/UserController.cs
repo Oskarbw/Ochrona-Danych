@@ -219,70 +219,7 @@ namespace dotnet_docker.Controllers
 
             return Ok();
         }
-
-
-
-
-
-        [HttpGet("cipher/{text}")]
-        public async Task<ActionResult<string>> Cipher(string text)
-        {
-
-            var cipherText = CryptoUtils.Encryption(text);
-            var plainTextAgain = CryptoUtils.Decryption(cipherText);
-            var response = new
-            {
-                plainText = text,
-                cipherText = cipherText,
-                plainTextAgain = plainTextAgain
-            };
-            return Ok(response);
-        }
-
-        [HttpGet("decipher/{text}")]
-        public async Task<ActionResult<string>> Decipher(string text)
-        {
-
-            var plainText = CryptoUtils.Decryption(text);
-            var response = new
-            {
-                cipherText = text,
-                plainText = plainText
-            };
-            return Ok(response);
-        }
-
-
-        [HttpGet("passwordchange/{username}/{password}")]
-        public async Task<ActionResult<string>> PasswordChange(string username, string password)
-        {
-            // var password = passwordChangeDto.Password;
-            // var username = passwordChangeDto.Username;
-
-            // WALIDUJ HASLO
-
-            // USUN REKORDY Z BAZY
-
-            // WYGENERUJ 10 HASEL
-            var passwordEntities = _crypto.createTenPasswordEntities(password, username);
-
-
-            _db.Passwords.AddRange(passwordEntities);
-            _db.SaveChanges();
-            // DODAJ JE DO BAZY
-
-            return Ok("Poszlo");
-        }
-
-        [HttpGet("passwords")]
-        public async Task<ActionResult<string>> GetAllPasswords()
-        {
-            var passwords = _db.Passwords.ToList();
-
-
-            return Ok(passwords);
-        }
-
+        
 
         private string CreateToken(string username)
         {
